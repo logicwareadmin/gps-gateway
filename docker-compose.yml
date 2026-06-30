@@ -1,0 +1,12 @@
+services:
+  gateway:
+    build: .
+    container_name: gps-gateway
+    restart: always
+    ports:
+      - "5027:5027"
+    environment:
+      BACKEND_URL: ${BACKEND_URL:?falta BACKEND_URL}
+      API_KEY: ${API_KEY:?falta API_KEY}
+      GATEWAY_PORT: "5027"
+      PROTOCOL: auto
