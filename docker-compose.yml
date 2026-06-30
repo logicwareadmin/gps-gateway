@@ -10,3 +10,4 @@ services:
       API_KEY: ${API_KEY:?falta API_KEY}
       GATEWAY_PORT: "5027"
       PROTOCOL: auto
+      GATEWAY_DEBUG: ${GATEWAY_DEBUG:-0}

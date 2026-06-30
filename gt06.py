@@ -65,6 +65,8 @@ async def handle(buf, writer, forward, log):
         elif start == b"\x79\x79":
             ln = struct.unpack(">H", await buf.exactly(2))[0]
         else:
+            if DEBUG:
+                log(f"gt06 desync start={start.hex()} (esperaba 7878/7979)")
             break
         body = await buf.exactly(ln)      # protocol + content + serial(2) + crc(2)
         await buf.exactly(2)              # stop 0x0d0a
